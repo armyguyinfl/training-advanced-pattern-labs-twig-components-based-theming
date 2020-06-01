@@ -1,0 +1,20 @@
+uuid: c378dd5e-23b0-4984-a3d3-365fc59e4479
+langcode: en
+status: true
+dependencies:
+  theme:
+    - training_theme
+_core:
+  default_config_hash: 7rR9chwXvdM2H8OYMAYx9Zj3GGlPMrZp_M3ZA4thYTk
+id: training_theme_page_title
+theme: training_theme
+region: content
+weight: -50
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  provider: core
+  label_display: '0'
+visibility: {  }
