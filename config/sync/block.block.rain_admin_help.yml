@@ -1,0 +1,22 @@
+uuid: cd94e7bc-958e-4d54-9ce9-4274c9f527ca
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - rain_admin
+_core:
+  default_config_hash: 8I8iACSa0sKO3k3jlvUG1ge52rfcKX7USJAQYnzuBgg
+id: rain_admin_help
+theme: rain_admin
+region: content
+weight: -30
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  provider: help
+  label_display: '0'
+visibility: {  }

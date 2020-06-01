@@ -1,0 +1,25 @@
+uuid: 9347cfd5-69f4-4a83-a24b-9c67f4f6be6c
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - rain_admin
+_core:
+  default_config_hash: NDwadleLD3YVSbDUaakxyYZyINYtkFtOVGShfq4kWy8
+id: rain_admin_branding
+theme: rain_admin
+region: header
+weight: 0
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  provider: system
+  label_display: '0'
+  use_site_logo: true
+  use_site_name: true
+  use_site_slogan: true
+visibility: {  }

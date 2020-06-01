@@ -1,0 +1,20 @@
+uuid: 70f1c137-fc36-42bf-ae07-45b9ba8251f9
+langcode: en
+status: true
+dependencies:
+  theme:
+    - rain_admin
+_core:
+  default_config_hash: 7rR9chwXvdM2H8OYMAYx9Zj3GGlPMrZp_M3ZA4thYTk
+id: rain_admin_page_title
+theme: rain_admin
+region: content
+weight: -50
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  provider: core
+  label_display: '0'
+visibility: {  }

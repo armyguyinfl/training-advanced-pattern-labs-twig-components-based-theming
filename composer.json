@@ -29,7 +29,8 @@
         "drupal/paragraphs": "^1.12",
         "drupal/twig_field_value":"^2.0",
         "drupal/viewsreference": "^2.0",
-        "drush/drush": "^10.2"
+        "drush/drush": "^10.2",
+        "mediacurrent/rain_admin": "^1.0"
     },
     "require-dev": {
     },
