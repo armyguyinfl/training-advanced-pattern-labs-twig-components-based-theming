@@ -1,6 +1,6 @@
 uuid: db13b0a0-7b40-44cc-a991-e1a5e7a9824b
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - system.menu.main
