@@ -237,7 +237,10 @@ $databases = [];
  * directory in the public files path. The setting below allows you to set
  * its location.
  */
+$config_directories['sync'] = '../../config/sync';
+#$config_directories['sync'] = 'sites/default/files/config_acqTmp-2020-05-31T17.59.59-0530/active';
 $settings['config_sync_directory'] = '../../config/sync';
+#$settings['config_sync_directory'] = 'sites/default/files/config_acqTmp-2020-05-31T17.59.59-0530/active';
 
 /**
  * Settings:
@@ -533,7 +536,7 @@ if ($settings['hash_salt']) {
  *
  * @see \Drupal\Component\FileSystem\FileSystem::getOsTemporaryDirectory()
  */
-# $settings['file_temp_path'] = '/tmp';
+$settings['file_temp_path'] = '/tmp';
 
 /**
  * Session write interval:
@@ -706,6 +709,8 @@ $settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.yml';
  * will allow the site to run off of all variants of example.com and
  * example.org, with all subdomains included.
  */
+/* Set trusted hosts patterns for the local environment */
+$settings['trusted_host_patterns'][] = '^.+\.dd';
 
 /**
  * The default list of directories that will be ignored by Drupal's file API.
@@ -752,9 +757,9 @@ $settings['entity_update_backup'] = TRUE;
  * Keep this code block at the end of this file to take full effect.
  */
 #
-# if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
-#   include $app_root . '/' . $site_path . '/settings.local.php';
-# }
+if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
+  include $app_root . '/' . $site_path . '/settings.local.php';
+}
 
 // <DDSETTINGS>
 // Please don't edit anything between <DDSETTINGS> tags.
