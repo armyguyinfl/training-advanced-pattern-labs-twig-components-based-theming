@@ -38,15 +38,12 @@
 
 html {
   @include font-stack-primary;
-  font-size: 100%;
-  line-height: 1.15;
-  box-sizing: border-box;
-  -webkit-text-size-adjust: 100%;
+  font-size: 62.5%;
 }
 
-// Sections.
 body {
-  margin: 0;
+  font-size: 1.8rem;
+  line-height: 1.5;
 }
 
 // Render the `main` element consistently in IE11.
