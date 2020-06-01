@@ -17,10 +17,18 @@
     "require": {
         "composer/installers": "^1.2",
         "drupal/admin_toolbar": "^2.2",
+        "drupal/components": "^1.1",
         "drupal/core-composer-scaffold": "^8.8",
         "drupal/core-project-message": "^8.8",
         "drupal/core-recommended": "^8.8",
         "drupal/core-vendor-hardening": "^8.8",
+        "drupal/crop": "^2.1",
+        "drupal/devel": "^2.0",
+        "drupal/entity_reference_revisions": "^1.0",
+        "drupal/focal_point":"^1.4",
+        "drupal/paragraphs": "^1.12",
+        "drupal/twig_field_value":"^2.0",
+        "drupal/viewsreference": "^2.0",
         "drush/drush": "^10.2"
     },
     "require-dev": {
