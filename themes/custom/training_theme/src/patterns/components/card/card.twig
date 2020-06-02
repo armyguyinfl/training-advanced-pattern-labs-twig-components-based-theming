@@ -1,7 +1,17 @@
 {{ attach_library('training_theme/card') }}
 
-<article class="card{{ modifier ? ' ' ~ modifier }}{{- attributes ? ' ' ~ attributes.class -}}"
+<article class="card{{ modifier ? ' ' ~ modifier }}
+  {{- attributes ? ' ' ~ attributes.class -}}"
   {{- attributes ? attributes|without(class) -}}>
+
+  {# Date for featured content cards. #}
+  {% if 'card--wide' in modifier %}
+    {% block featured_date %}
+      <div class="card__featured--date">
+        {{ date }}
+      </div>
+    {% endblock featured_date %}
+  {% endif %}
 
   {% if image %}
     <div class="card__media">
@@ -11,17 +21,23 @@
   <div class="card__content">
     {% if title %}
       {{ title_prefix }}
-      {%
-        include '@training_theme/heading/heading.twig' with {
+      {% include '@training_theme/heading/heading.twig' with {
         heading: title
-      } only
-      %}
+      } only %}
       {{ title_suffix }}
     {% endif %}
 
-    {% if date %}
-      <div class="eyebrow card__date">
-        {{ date }}
+    {% if 'card--wide' not in modifier %}
+      {% block card_date %}
+        <div class="eyebrow card__date">
+          {{ date }}
+        </div>
+      {% endblock card_date %}
+    {% endif %}
+
+    {% if category %}
+      <div class="eyebrow card__category">
+        {{ category }}
       </div>
     {% endif %}
 
@@ -31,16 +47,28 @@
       </div>
     {% endif %}
 
-    {% if tags %}
-      <ul class="tags">
-        {% for item in tags %}
-          <li class="tag__item">
-            <a href="{{ item.url }}" class="tag__link">
-              {{ item.name }}
-            </a>
-          </li>
-        {% endfor %}
-      </ul>
+    {% block tags %}
+      {% if tags %}
+        <ul class="tags">
+          {% for item in tags %}
+            <li class="tag__item">
+              <a href="{{ item.url }}" class="tag__link">
+                {{ item.name }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endblock tags %}
+
+    {% if author %}
+      <div class="author">
+        <div class="author__meta">
+          <div class="author__name">{{ author.name }}</div>
+          <div class="author__title">{{ author.title }}</div>
+        </div>
+        <div class="author__photo">{{ author.photo }}</div>
+      </div>
     {% endif %}
   </div>
 </article>
