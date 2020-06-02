@@ -1,4 +1,4 @@
-# These lines define the training_theme/global library.
+$# These lines define the training_theme/global library.
 global:
   css:
     # The SMACSS category, "base", is loaded before other categories. Drupal 8
@@ -38,6 +38,11 @@ accordion:
   dependencies:
     - core/drupal
     - core/jquery
+
+autho:
+  css:
+    component:
+      dist/css/author.css: {}
 
 button:
   css:
