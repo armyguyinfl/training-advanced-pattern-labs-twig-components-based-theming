@@ -1,0 +1,41 @@
+uuid: b4e1dffd-bc0b-4477-8068-d100c3ded2a4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.homepage.field_blog_articles_list
+    - field.field.node.homepage.field_hero
+    - node.type.homepage
+  module:
+    - entity_reference_revisions
+    - user
+    - viewsreference
+id: node.homepage.default
+targetEntityType: node
+bundle: homepage
+mode: default
+content:
+  field_blog_articles_list:
+    weight: 102
+    label: hidden
+    settings:
+      plugin_types:
+        - block
+    third_party_settings: {  }
+    type: viewsreference_formatter
+    region: content
+  field_hero:
+    type: entity_reference_revisions_entity_view
+    weight: 101
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }
