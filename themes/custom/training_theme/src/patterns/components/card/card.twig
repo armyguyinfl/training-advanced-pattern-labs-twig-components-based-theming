@@ -1,66 +1,74 @@
 {{ attach_library('training_theme/card') }}
 
-<article class="card {{ modifier }}" {{ extra_attributes }}>
-  {#
-    Optional: Pass in Drupal specific functionality.
-    Note that this is mostly relevant to nodes and blocks.
-  #}
-  {#
-    {{ title_prefix }}
-    {{ title_suffix }}
-  #}
+<article class="card{{ modifier ? ' ' ~ modifier }}
+  {{- attributes ? ' ' ~ attributes.class -}}"
+  {{- attributes ? attributes|without(class) -}}>
 
-  <div class="card__media">
-    {% if image %}
+  {# Date for featured content cards. #}
+  {% if 'card--wide' in modifier %}
+    {% block featured_date %}
+      <div class="card__featured--date">
+        {{ date }}
+      </div>
+    {% endblock featured_date %}
+  {% endif %}
+
+  {% if image %}
+    <div class="card__media">
       {{ image }}
-    {% elseif video %}
-      {{ video }}
-    {% endif %}
-    <span class="card__media-caption">
-      {{ caption }}
-    </span>
-  </div>
-
+    </div>
+  {% endif %}
   <div class="card__content">
-    {% if eyebrow %}
-      {%
-        include '@training_theme/eyebrow/eyebrow.twig' with {
-          "text": eyebrow,
-          "modifier": "card__eyebrow"
-        } only
-      %}
-    {% endif %}
-
     {% if title %}
-      {%
-        include '@training_theme/heading/heading.twig' with {
-          "title": title,
-          "heading_level": heading_level,
-          "modifier": "card__title",
-          "url": url
-        } only
-      %}
+      {{ title_prefix }}
+      {% include '@training_theme/heading/heading.twig' with {
+        heading: title
+      } only %}
+      {{ title_suffix }}
     {% endif %}
 
-    {% if subhead %}
-      {%
-        include '@training_theme/heading/heading.twig' with {
-          "title": subhead,
-          "heading_level": subhead_level,
-          "modifier": "card__subhead"
-        } only
-      %}
+    {% if 'card--wide' not in modifier %}
+      {% block card_date %}
+        <div class="eyebrow card__date">
+          {{ date }}
+        </div>
+      {% endblock card_date %}
     {% endif %}
 
-    {% if text %}
-      <div class="card__summary">
-        {{ text }}
+    {% if category %}
+      <div class="eyebrow card__category">
+        {{ category }}
       </div>
     {% endif %}
 
-    {% if link_text %}
-      <a href="{{ url }}" class="card__link">{{ link_text }}</a>
+    {% if body_text %}
+      <div class="card__body">
+        {{ body_text }}
+      </div>
+    {% endif %}
+
+    {% block tags %}
+      {% if tags %}
+        <ul class="tags">
+          {% for item in tags %}
+            <li class="tag__item">
+              <a href="{{ item.url }}" class="tag__link">
+                {{ item.name }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endblock tags %}
+
+    {% if author %}
+      <div class="author">
+        <div class="author__meta">
+          <div class="author__name">{{ author.name }}</div>
+          <div class="author__title">{{ author.title }}</div>
+        </div>
+        <div class="author__photo">{{ author.photo }}</div>
+      </div>
     {% endif %}
   </div>
-
 </article>
