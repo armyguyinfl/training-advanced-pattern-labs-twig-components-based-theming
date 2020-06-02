@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.blog.field_author
     - field.field.node.blog.field_blog_image
     - field.field.node.blog.field_blog_tags
+    - field.field.node.blog.field_category
     - node.type.blog
   module:
     - text
@@ -19,18 +20,15 @@ mode: teaser
 content:
   body:
     label: hidden
-    type: text_summary_or_trimmed
-    weight: 101
+    type: text_trimmed
+    weight: 0
     settings:
-      trim_length: 600
-    third_party_settings: {  }
-    region: content
-  links:
-    weight: 100
-    settings: {  }
+      trim_length: 160
     third_party_settings: {  }
     region: content
 hidden:
   field_author: true
   field_blog_image: true
   field_blog_tags: true
+  field_category: true
+  links: true
