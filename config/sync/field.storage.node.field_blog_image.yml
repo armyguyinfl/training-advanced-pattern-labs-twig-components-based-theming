@@ -1,18 +1,16 @@
-uuid: 40e1a0d5-7911-4633-bca9-1edd17d3eb31
+uuid: 7de1a851-68b5-489d-9306-b015001ffeb0
 langcode: en
 status: true
 dependencies:
   module:
+    - media
     - node
-    - taxonomy
-_core:
-  default_config_hash: WpOE_bs8Bs_HY2ns7n2r__de-xno0-Bxkqep5-MsHAs
-id: node.field_tags
-field_name: field_tags
+id: node.field_blog_image
+field_name: field_blog_image
 entity_type: node
 type: entity_reference
 settings:
-  target_type: taxonomy_term
+  target_type: media
 module: core
 locked: false
 cardinality: 1
