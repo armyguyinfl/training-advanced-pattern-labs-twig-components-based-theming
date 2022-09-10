@@ -1,17 +1,7 @@
 {{ attach_library('training_theme/card') }}
 
-<article class="card{{ modifier ? ' ' ~ modifier }}
-  {{- attributes ? ' ' ~ attributes.class -}}"
+<article class="card{{ modifier ? ' ' ~ modifier }}{{- attributes ? ' ' ~ attributes.class -}}"
   {{- attributes ? attributes|without(class) -}}>
-
-  {# Date for featured content cards. #}
-  {% if 'card--wide' in modifier %}
-    {% block featured_date %}
-      <div class="card__featured--date">
-        {{ date }}
-      </div>
-    {% endblock featured_date %}
-  {% endif %}
 
   {% if image %}
     <div class="card__media">
@@ -29,18 +19,9 @@
       {{ title_suffix }}
     {% endif %}
 
-    {# Date for featured content cards. #}
-    {% if 'card--wide' not in modifier %}
-      {% block card_date %}
-        <div class="eyebrow card__date">
-          {{ date }}
-        </div>
-      {% endblock card_date %}
-    {% endif %}
-
-    {% if category %}
-      <div class="eyebrow card__category">
-        {{ category }}
+    {% if date %}
+      <div class="eyebrow card__date">
+        {{ date }}
       </div>
     {% endif %}
 
@@ -50,28 +31,16 @@
       </div>
     {% endif %}
 
-    {% block tags %}
-      {% if tags %}
-        <ul class="tags">
-          {% for item in tags %}
-            <li class="tag__item">
-              <a href="{{ item.url }}" class="tag__link">
-                {{ item.name }}
-              </a>
-            </li>
-          {% endfor %}
-        </ul>
-      {% endif %}
-    {% endblock tags %}
-
-    {% block author %}
-      {% if author %}
-        {%
-          include '@training_theme/author/author.twig' with {
-          "author": author
-        } only
-        %}
-      {% endif %}
-    {% endblock author %}
+    {% if tags %}
+      <ul class="tags">
+        {% for item in tags %}
+          <li class="tag__item">
+            <a href="{{ item.url }}" class="tag__link">
+              {{ item.name }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
   </div>
 </article>
