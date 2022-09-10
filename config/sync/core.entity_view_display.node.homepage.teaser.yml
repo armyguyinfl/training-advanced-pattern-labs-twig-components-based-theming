@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - field.field.node.homepage.field_blog_articles_list
     - field.field.node.homepage.field_hero
     - node.type.homepage
   module:
@@ -20,5 +19,4 @@ content:
     third_party_settings: {  }
     region: content
 hidden:
-  field_blog_articles_list: true
   field_hero: true
